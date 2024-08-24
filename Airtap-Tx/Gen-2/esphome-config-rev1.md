@@ -103,6 +103,8 @@ display:
       it.printf(0, 28, id(myfont), "Fan Speed: %d", id(fan_speed));
 
 
+# You will need to download the font file available online and place it in the same directory as your configuration file
+# https://font.download/font/arial
 font:
   - file: "fonts/Arial.ttf"
     id: myfont
@@ -122,7 +124,7 @@ binary_sensor:
             }
 
   - platform: gpio
-    pin: GPIO8
+    pin: GPIO20
     name: "Up Button"
     on_press:
       then:
@@ -130,12 +132,28 @@ binary_sensor:
             if (id(fan_speed) < 10) id(fan_speed) += 1;
 
   - platform: gpio
-    pin: GPIO9
+    pin: GPIO8
     name: "Down Button"
     on_press:
       then:
         - lambda: |-
             if (id(fan_speed) > 0) id(fan_speed) -= 1;
+  
+  - platform: gpio
+    pin: GPIO9
+    name: "Toggle Button"
+    on_press:
+      then:
+        - lambda: |-
+            if (id(fan_speed) == 0) {
+              id(fan_speed) = 10;
+            } else {
+              id(fan_speed) = 0;
+            }
+
+  # - platform: gpio
+  #   pin: GPIO10
+  #   name: "Menu Button"
 
 light:
   - platform: monochromatic

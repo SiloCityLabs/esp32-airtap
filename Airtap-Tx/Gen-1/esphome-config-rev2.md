@@ -103,6 +103,8 @@ display:
       it.printf(0, 28, id(myfont), "Fan Speed: %d", id(fan_speed));
 
 
+# You will need to download the font file available online and place it in the same directory as your configuration file
+# https://font.download/font/arial
 font:
   - file: "fonts/Arial.ttf"
     id: myfont

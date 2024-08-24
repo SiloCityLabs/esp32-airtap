@@ -7,7 +7,7 @@ This repository contains code and instructions to modify the AC Infinity product
 
  ## Airtap T-Series ESP32 Mods
 
-Code and instructions to modify the AC Infinity Airtap T-Series inline duct fans with an ESP32 microcontroller. 
+Code and instructions to modify the AC Infinity Airtap T-Series inline duct fans with an ESP32 microcontroller.
 
 **Youtube Video:** [Shorts](https://www.youtube.com/shorts/T40RKEEfJKI)
 
@@ -25,6 +25,8 @@ Code and instructions to modify the AC Infinity Airtap T-Series inline duct fans
 This revision of Gen 1 has an aligment issue. When installed you should only use two left screws to secure the PCB. The right screws will not align with the holes. Also includes individual fan control with two PWM outputs.
 
 [ESPHome Configuration](Airtap-Tx/Gen-1/esphome-config-rev1.md)
+
+This includes a font that needs to be downloaded and placed in the same directory as your configuration file. You can download the font file [here](https://font.download/font/arial)
 
 #### Pinout:
 
@@ -52,6 +54,8 @@ This is the second revision of Gen 1. It has the same layout with fixed hole ali
 
 [ESPHome Configuration](Airtap-Tx/Gen-1/esphome-config-rev2.md)
 
+This includes a font that needs to be downloaded and placed in the same directory as your configuration file. You can download the font file [here](https://font.download/font/arial)
+
 #### Features
  - 1x PWM Output
  - 1x Temperature Sensor
@@ -75,6 +79,8 @@ This is the second revision of Gen 1. It has the same layout with fixed hole ali
 This is the second Generation of Airtap series. AC Infinity introduced a larger display, 4 buttons, bluetooth and a new PCB layout. This revision has a single PWM output and a temperature sensor.
 
 [ESPHome Configuration](Airtap-Tx/Gen-2/esphome-config-rev1.md)
+
+This includes a font that needs to be downloaded and placed in the same directory as your configuration file. You can download the font file [here](https://font.download/font/arial)
 
 #### Features
  - 1x PWM Output
@@ -101,4 +107,9 @@ You can get the assembled boards in my [Tindie](https://plantcare.li/airtap-t4?u
 <a href="https://plantcare.li/airtap-t4?utm_source=github&utm_medium=link&utm_campaign=esp32-mods"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-larges.png" alt="I sell on Tindie" width="200" height="104" allign="left"></a>
 
 ## Certifications
-None yet
+
+This project has been submited to Open Source Hardware Association for certification. (pending)
+
+<!-- This project is certified by the [Open Source Hardware Association (OSHWA)](https://certification.oshwa.org/grxxxxxxxx.html)
+
+<img src="Airtap-Tx/certification-mark-GRxxxxxx-stacked.png" alt="Open Source Hardware Association Certification" width="300" allign="left"/> -->
