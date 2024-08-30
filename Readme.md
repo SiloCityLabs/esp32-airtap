@@ -108,8 +108,6 @@ You can get the assembled boards in my [Tindie](https://plantcare.li/airtap-t4?u
 
 ## Certifications
 
-This project has been submited to Open Source Hardware Association for certification. (pending)
+This project is certified by the [Open Source Hardware Association (OSHWA)](https://certification.oshwa.org/us002672.html)
 
-<!-- This project is certified by the [Open Source Hardware Association (OSHWA)](https://certification.oshwa.org/grxxxxxxxx.html)
-
-<img src="Airtap-Tx/certification-mark-GRxxxxxx-stacked.png" alt="Open Source Hardware Association Certification" width="300" allign="left"/> -->
+<img src="Airtap-Tx/certification-mark-US002672-stacked.png" alt="Open Source Hardware Association Certification" width="300" allign="left"/>
