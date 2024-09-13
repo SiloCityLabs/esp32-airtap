@@ -53,6 +53,11 @@ number:
     set_action:
       - lambda: |-
           id(fan_speed) = (int)(x);
+    on_value:
+      - lambda: |-
+          if (id(fan_speed_number).state != id(fan_speed)) {
+            id(fan_speed_number).publish_state(id(fan_speed));
+          }
 
 sensor:
   - platform: ntc
