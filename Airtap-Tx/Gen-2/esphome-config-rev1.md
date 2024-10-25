@@ -42,6 +42,11 @@ globals:
     restore_value: yes
     initial_value: '0'
 
+button:
+  - platform: restart
+    icon: mdi:power-cycle
+    name: “ESP Reboot”
+
 number:
   - platform: template
     name: "Fan Speed"
@@ -53,11 +58,7 @@ number:
     set_action:
       - lambda: |-
           id(fan_speed) = (int)(x);
-    on_value:
-      - lambda: |-
-          if (id(fan_speed_number).state != id(fan_speed)) {
-            id(fan_speed_number).publish_state(id(fan_speed));
-          }
+          id(fan_speed_number).publish_state(x);
 
 sensor:
   - platform: ntc
@@ -67,6 +68,11 @@ sensor:
       - 3.389kOhm -> 0°C
       - 10.0kOhm -> 25°C
       - 27.219kOhm -> 50°C
+      # - 10.0kOhm -> 28.88°C
+      # # - 10.86kOhm -> 23.55°C
+      # - 13kOhm -> 16.94°C
+      # - 17kOhm -> 9.44°C
+
     name: "AC Infinity Temperature"
     id: temp_sensor
     unit_of_measurement: "°C"
@@ -82,7 +88,7 @@ sensor:
   - platform: adc
     pin: GPIO4
     id: adc_sensor
-    attenuation: 11db
+    attenuation: 12db
 
 output:
   - platform: ledc
@@ -127,6 +133,7 @@ binary_sensor:
             } else {
               id(fan_speed) = 0;
             }
+            id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
 
   - platform: gpio
     pin: GPIO20
@@ -134,7 +141,10 @@ binary_sensor:
     on_press:
       then:
         - lambda: |-
-            if (id(fan_speed) < 10) id(fan_speed) += 1;
+            if (id(fan_speed) < 10){ 
+              id(fan_speed) += 1;
+              id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
+            }
 
   - platform: gpio
     pin: GPIO8
@@ -142,7 +152,10 @@ binary_sensor:
     on_press:
       then:
         - lambda: |-
-            if (id(fan_speed) > 0) id(fan_speed) -= 1;
+            if (id(fan_speed) > 0){ 
+              id(fan_speed) -= 1;
+              id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
+            }
   
   - platform: gpio
     pin: GPIO9
@@ -155,10 +168,7 @@ binary_sensor:
             } else {
               id(fan_speed) = 0;
             }
-
-  # - platform: gpio
-  #   pin: GPIO10
-  #   name: "Menu Button"
+            id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
 
 light:
   - platform: monochromatic
@@ -178,6 +188,6 @@ interval:
             } else if (id(fan_speed) == 1) {
               return 0.38;  // Minimum value to start the fan
             } else {
-              return (id(fan_speed) + 3) / 13.0;
+              return (id(fan_speed) + 4) / 14.0;
             }
 ```

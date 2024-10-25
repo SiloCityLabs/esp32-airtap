@@ -42,6 +42,11 @@ globals:
     restore_value: yes
     initial_value: '0'
 
+button:
+  - platform: restart
+    icon: mdi:power-cycle
+    name: "ESP Reboot"
+
 number:
   - platform: template
     name: "Fan Speed"
@@ -53,11 +58,7 @@ number:
     set_action:
       - lambda: |-
           id(fan_speed) = (int)(x);
-    on_value:
-      - lambda: |-
-          if (id(fan_speed_number).state != id(fan_speed)) {
-            id(fan_speed_number).publish_state(id(fan_speed));
-          }
+          id(fan_speed_number).publish_state(x);
 
 sensor:
   - platform: ntc
@@ -82,7 +83,7 @@ sensor:
   - platform: adc
     pin: GPIO4
     id: adc_sensor
-    attenuation: 11db
+    attenuation: 12db
 
 output:
   - platform: ledc
@@ -108,8 +109,6 @@ display:
       it.printf(0, 28, id(myfont), "Fan Speed: %d", id(fan_speed));
 
 
-# You will need to download the font file available online and place it in the same directory as your configuration file
-# https://font.download/font/arial
 font:
   - file: "fonts/Arial.ttf"
     id: myfont
@@ -127,6 +126,7 @@ binary_sensor:
             } else {
               id(fan_speed) = 0;
             }
+            id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
 
   - platform: gpio
     pin: GPIO8
@@ -134,7 +134,10 @@ binary_sensor:
     on_press:
       then:
         - lambda: |-
-            if (id(fan_speed) < 10) id(fan_speed) += 1;
+            if (id(fan_speed) < 10){
+              id(fan_speed) += 1;
+              id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
+            }
 
   - platform: gpio
     pin: GPIO9
@@ -142,7 +145,10 @@ binary_sensor:
     on_press:
       then:
         - lambda: |-
-            if (id(fan_speed) > 0) id(fan_speed) -= 1;
+            if (id(fan_speed) > 0){
+              id(fan_speed) -= 1;
+              id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
+            }
 
 light:
   - platform: monochromatic
