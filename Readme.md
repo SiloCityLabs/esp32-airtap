@@ -11,6 +11,16 @@ Code and instructions to modify the AC Infinity Airtap T-Series inline duct fans
 
 **Youtube Video:** [Shorts](https://www.youtube.com/shorts/T40RKEEfJKI)
 
+ - Disassembly: Carefully open your AC Infinity vent to access the original PCB.
+ - Compare PCB Layout: Match your vent’s PCB layout with the images provided to ensure compatibility with one of the three supported versions.
+ - Upload Firmware: Use the provided ESPHome configuration links to upload the correct firmware version to your ESP32 module or alternative firmware compatible with ESP32-c3 module.
+ - Install the ESP32 Module:
+ - Replace the existing PCB with the ESP32 module.
+ - Connect the PWM fans and NTC thermistor to the corresponding terminals on the new PCB.
+ - (If needed) Solder the power cable to the correct pads on the PCB.
+ - Secure the Module: Reassemble the vent, ensuring that all connections are secure and the module is properly seated.
+ - Test Functionality: Power on the vent and check that the display is working and the device connects to your Wi-Fi network.
+
 
 ### How to identify your Generation
 
