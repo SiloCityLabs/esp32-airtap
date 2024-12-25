@@ -4,6 +4,7 @@
 
 This repository contains code and instructions to modify the AC Infinity products with an ESP32 microcontroller. The ESP32 is a powerful microcontroller that can be used to control the fan speed, monitor temperature and humidity, and connect to the internet. The modifications described in this repository will allow you to control your fan remotely, set up schedules, and monitor environmental conditions in your grow room or other indoor space.
 
+Get it on [SiloCityLabs Shop](https://shop.silocitylabs.com/products/esp32-module-for-ac-infinity-airtap-t4-t6)
 
  ## Airtap T-Series ESP32 Mods
 
@@ -112,9 +113,8 @@ This includes a font that needs to be downloaded and placed in the same director
 | GPIO10    | Button Menu   | D10      |
 
  ## Availability
-You can get the assembled boards in my [Tindie](https://plantcare.li/airtap-t4?utm_source=github&utm_medium=link&utm_campaign=esp32-mods)
+You can get the assembled boards in my [Shop](https://shop.silocitylabs.com/products/esp32-module-for-ac-infinity-airtap-t4-t6)
 
-<a href="https://plantcare.li/airtap-t4?utm_source=github&utm_medium=link&utm_campaign=esp32-mods"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-larges.png" alt="I sell on Tindie" width="200" height="104" allign="left"></a>
 
 ## Certifications
 
