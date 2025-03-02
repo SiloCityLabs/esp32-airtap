@@ -1,4 +1,10 @@
-```yaml
+############################################################################################################
+## Airtap T-Series Vent Controller 3 Button Revision 1
+## This version has been replaced by rev2 and is no longer supported
+## This version is only here for historical purposes and support
+## Wont be submitted to the ESPHome repository
+############################################################################################################
+
 esphome:
   name: my-vent
   friendly_name: My Vent
@@ -92,6 +98,12 @@ output:
     frequency: 1000 Hz
     # power_supply: fan_speed
 
+  - platform: ledc
+    pin: GPIO3
+    id: pwm_output_2
+    frequency: 1000 Hz
+    # power_supply: fan_speed
+
 display:
   - platform: ssd1306_i2c
     model: "SSD1306 128x64"
@@ -157,6 +169,12 @@ light:
     id: fan_1
     internal: true  # Hide this from Home Assistant
 
+  - platform: monochromatic
+    output: pwm_output_2
+    name: "Fan 2 Speed"
+    id: fan_2
+    internal: true  # Hide this from Home Assistant
+
 interval:
   - interval: 1s
     then:
@@ -170,4 +188,13 @@ interval:
             } else {
               return (id(fan_speed) + 3) / 13.0;
             }
-```
+      - light.turn_on:
+          id: fan_2
+          brightness: !lambda |-
+            if (id(fan_speed) == 0) {
+              return 0.0;
+            } else if (id(fan_speed) == 1) {
+              return 0.38;  // Minimum value to start the fan
+            } else {
+              return (id(fan_speed) + 3) / 13.0;
+            }

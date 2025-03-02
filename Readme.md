@@ -35,7 +35,7 @@ Code and instructions to modify the AC Infinity Airtap T-Series inline duct fans
 
 This revision of Gen 1 has an aligment issue. When installed you should only use two left screws to secure the PCB. The right screws will not align with the holes. Also includes individual fan control with two PWM outputs.
 
-[ESPHome Configuration](Airtap-Tx/Gen-1/esphome-config-rev1.md)
+[ESPHome Configuration](Airtap-Tx/Gen-1/esphome-3btn-rev1.yaml)
 
 This includes a font that needs to be downloaded and placed in the same directory as your configuration file. You can download the font file [here](https://font.download/font/arial)
 
@@ -63,7 +63,7 @@ This includes a font that needs to be downloaded and placed in the same director
 
 This is the second revision of Gen 1. It has the same layout with fixed hole aligment. The second PWM output was removed and both fans are controlled from a single PWM output.
 
-[ESPHome Configuration](Airtap-Tx/Gen-1/esphome-config-rev2.md)
+[ESPHome Configuration](Airtap-Tx/Gen-1/esphome-3btn-rev2.yaml)
 
 This includes a font that needs to be downloaded and placed in the same directory as your configuration file. You can download the font file [here](https://font.download/font/arial)
 
@@ -89,9 +89,7 @@ This includes a font that needs to be downloaded and placed in the same director
 
 This is the second Generation of Airtap series. AC Infinity introduced a larger display, 4 buttons, bluetooth and a new PCB layout. This revision has a single PWM output and a temperature sensor.
 
-[ESPHome Configuration](Airtap-Tx/Gen-2/esphome-config-rev1.md)
-
-This includes a font that needs to be downloaded and placed in the same directory as your configuration file. You can download the font file [here](https://font.download/font/arial)
+[ESPHome Configuration](Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml)
 
 #### Features
  - 1x PWM Output
