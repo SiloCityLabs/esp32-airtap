@@ -19,7 +19,7 @@ esphome:
   # configuration and updates.
   project:
     name: silocitylabs.airtap-esp32-4btn
-    version: "1.1.0"
+    version: "1.1.1"
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -49,6 +49,14 @@ wifi:
 # to provision wifi credentials to the device.
 captive_portal:
 
+# Sets up Bluetooth LE (Only on ESP32) to allow the user
+# to provision wifi credentials to the device.
+esp32_improv:
+  authorizer: none
+
+# Sets up the improv via serial client for Wi-Fi provisioning
+improv_serial:
+
 i2c:
   sda: GPIO6
   scl: GPIO7
@@ -63,8 +71,9 @@ globals:
 
 button:
   - platform: restart
+    id: restart_button
     icon: mdi:power-cycle
-    name: “ESP Reboot”
+    name: "ESP Reboot"
 
 number:
   - platform: template
@@ -118,6 +127,7 @@ output:
 
 display:
   - platform: ssd1306_i2c
+    id: display_1306
     model: "SSD1306 128x64"
     address: 0x3C
     # Celcius
@@ -141,6 +151,7 @@ binary_sensor:
   - platform: gpio
     pin: GPIO10
     name: "Mode Button"
+    id: button_mode
     on_press:
       then:
         - lambda: |-
@@ -154,6 +165,7 @@ binary_sensor:
   - platform: gpio
     pin: GPIO20
     name: "Up Button"
+    id: button_up
     on_press:
       then:
         - lambda: |-
@@ -165,6 +177,7 @@ binary_sensor:
   - platform: gpio
     pin: GPIO8
     name: "Down Button"
+    id: button_down
     on_press:
       then:
         - lambda: |-
@@ -176,6 +189,7 @@ binary_sensor:
   - platform: gpio
     pin: GPIO9
     name: "Toggle Button"
+    id: button_toggle
     on_press:
       then:
         - lambda: |-
