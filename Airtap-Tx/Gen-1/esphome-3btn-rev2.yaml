@@ -68,6 +68,27 @@ globals:
     type: int
     restore_value: yes
     initial_value: '0'
+  - id: panel_disabled
+    type: bool
+    restore_value: yes
+    initial_value: 'false'
+
+switch:
+  - platform: template
+    name: "Disable Panel Buttons"
+    id: panel_disable_switch
+    restore_mode: RESTORE_DEFAULT_OFF
+    icon: mdi:lock
+    lambda: |-
+      return id(panel_disabled);
+    turn_on_action:
+      - lambda: |-
+          id(panel_disabled) = true;
+          id(panel_disable_switch).publish_state(true);
+    turn_off_action:
+      - lambda: |-
+          id(panel_disabled) = false;
+          id(panel_disable_switch).publish_state(false);
 
 button:
   - platform: restart

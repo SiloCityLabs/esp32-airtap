@@ -41,15 +41,38 @@ i2c:
   sda: GPIO6
   scl: GPIO7
   scan: True
+  frequency: 400kHz
 
 globals:
   - id: fan_speed
     type: int
     restore_value: yes
     initial_value: '0'
+  - id: panel_disabled
+    type: bool
+    restore_value: yes
+    initial_value: 'false'
+
+switch:
+  - platform: template
+    name: "Disable Panel Buttons"
+    id: panel_disable_switch
+    restore_mode: RESTORE_DEFAULT_OFF
+    icon: mdi:lock
+    lambda: |-
+      return id(panel_disabled);
+    turn_on_action:
+      - lambda: |-
+          id(panel_disabled) = true;
+          id(panel_disable_switch).publish_state(true);
+    turn_off_action:
+      - lambda: |-
+          id(panel_disabled) = false;
+          id(panel_disable_switch).publish_state(false);
 
 button:
   - platform: restart
+    id: restart_button
     icon: mdi:power-cycle
     name: "ESP Reboot"
 
@@ -106,6 +129,7 @@ output:
 
 display:
   - platform: ssd1306_i2c
+    id: display_1306
     model: "SSD1306 128x64"
     address: 0x3C
     # Celcius
@@ -122,7 +146,7 @@ display:
 
 
 font:
-  - file: "fonts/Arial.ttf"
+  - file: "gfonts://Roboto"
     id: myfont
     size: 12
 
@@ -130,36 +154,45 @@ binary_sensor:
   - platform: gpio
     pin: GPIO10
     name: "Mode Button"
+    id: button_mode
     on_press:
       then:
         - lambda: |-
-            if (id(fan_speed) == 0) {
-              id(fan_speed) = 10;
-            } else {
-              id(fan_speed) = 0;
+            if (!id(panel_disabled)) {
+              if (id(fan_speed) == 0) {
+                id(fan_speed) = 10;
+              } else {
+                id(fan_speed) = 0;
+              }
+              id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
             }
-            id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
 
   - platform: gpio
     pin: GPIO8
     name: "Up Button"
+    id: button_up
     on_press:
       then:
         - lambda: |-
-            if (id(fan_speed) < 10){
-              id(fan_speed) += 1;
-              id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
+            if (!id(panel_disabled)) {
+              if (id(fan_speed) < 10){
+                id(fan_speed) += 1;
+                id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
+              }
             }
 
   - platform: gpio
     pin: GPIO9
     name: "Down Button"
+    id: button_down
     on_press:
       then:
         - lambda: |-
-            if (id(fan_speed) > 0){
-              id(fan_speed) -= 1;
-              id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
+            if (!id(panel_disabled)) {
+              if (id(fan_speed) > 0){
+                id(fan_speed) -= 1;
+                id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
+              }
             }
 
 light:
