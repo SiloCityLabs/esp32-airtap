@@ -25,6 +25,10 @@ build: ## Build the firmware
 	esphome compile Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml && \
 	cp Airtap-Tx/Gen-2/.esphome/build/airtap-esp32-4btn/.pioenvs/airtap-esp32-4btn/firmware.factory.bin firmware.4btn.bin
 
-flash: ## Flash the firmware to test device
+flash4: ## Flash the firmware 4 button device
 	source .venv/bin/activate && \
-	esphome upload esphome-4btn-rev1.yaml --device /dev/ttyACM0
+	esphome upload Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml --device /dev/ttyACM0
+
+flash3: ## Flash the firmware 3 button device
+	source .venv/bin/activate && \
+	esphome upload Airtap-Tx/Gen-1/esphome-3btn-rev2.yaml --device /dev/ttyACM0
