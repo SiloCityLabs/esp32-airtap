@@ -35,7 +35,7 @@ api:
 
 # OTA is required for Over-the-Air updating
 ota:
-  id: airtap-ota
+  id: airtap_ota
   platform: esphome
 
 # This should point to the public location of this yaml file.
@@ -59,7 +59,7 @@ esp32_improv:
 improv_serial:
 
 i2c:
-  id: airtap-i2c
+  id: airtap_i2c
   sda: GPIO6
   scl: GPIO7
   scan: True
