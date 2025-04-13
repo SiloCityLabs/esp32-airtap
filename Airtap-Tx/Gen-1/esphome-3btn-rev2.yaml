@@ -136,7 +136,9 @@ sensor:
 
 output:
   - platform: ledc
-    pin: GPIO2
+    pin: 
+      number: GPIO2
+      ignore_strapping_warning: true
     id: pwm_output_1
     frequency: 1000 Hz
     # power_supply: fan_speed
@@ -180,7 +182,9 @@ binary_sensor:
             id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
 
   - platform: gpio
-    pin: GPIO8
+    pin: 
+      number: GPIO8
+      ignore_strapping_warning: true
     name: "Up Button"
     id: button_up
     on_press:
@@ -192,7 +196,9 @@ binary_sensor:
             }
 
   - platform: gpio
-    pin: GPIO9
+    pin: 
+      number: GPIO9
+      ignore_strapping_warning: true
     name: "Down Button"
     id: button_down
     on_press:

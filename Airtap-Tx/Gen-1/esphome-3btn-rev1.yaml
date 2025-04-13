@@ -52,6 +52,10 @@ globals:
     type: bool
     restore_value: yes
     initial_value: 'false'
+  - id: display_enabled
+    type: bool
+    restore_value: yes
+    initial_value: 'true'
 
 switch:
   - platform: template
@@ -69,6 +73,21 @@ switch:
       - lambda: |-
           id(panel_disabled) = false;
           id(panel_disable_switch).publish_state(false);
+  - platform: template
+    name: "Display"
+    id: display_switch
+    restore_mode: RESTORE_DEFAULT_ON
+    icon: mdi:monitor
+    lambda: |-
+      return !id(display_enabled);
+    turn_on_action:
+      - lambda: |-
+          id(display_enabled) = false;
+          id(display_switch).publish_state(true);
+    turn_off_action:
+      - lambda: |-
+          id(display_enabled) = true;
+          id(display_switch).publish_state(false);
 
 button:
   - platform: restart
@@ -116,7 +135,9 @@ sensor:
 
 output:
   - platform: ledc
-    pin: GPIO2
+    pin: 
+      number: GPIO2
+      ignore_strapping_warning: true
     id: pwm_output_1
     frequency: 1000 Hz
     # power_supply: fan_speed
@@ -168,7 +189,9 @@ binary_sensor:
             }
 
   - platform: gpio
-    pin: GPIO8
+    pin: 
+      number: GPIO8
+      ignore_strapping_warning: true
     name: "Up Button"
     id: button_up
     on_press:
@@ -182,7 +205,9 @@ binary_sensor:
             }
 
   - platform: gpio
-    pin: GPIO9
+    pin: 
+      number: GPIO9
+      ignore_strapping_warning: true
     name: "Down Button"
     id: button_down
     on_press:
