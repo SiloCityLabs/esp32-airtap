@@ -38,6 +38,7 @@ wifi:
 captive_portal:
 
 i2c:
+  id: airtap_i2c
   sda: GPIO6
   scl: GPIO7
   scan: True
