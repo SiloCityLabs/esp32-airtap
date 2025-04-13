@@ -19,7 +19,7 @@ esphome:
   # configuration and updates.
   project:
     name: silocitylabs.airtap-esp32-3btn
-    version: "1.1.1"
+    version: "1.2.0"
 
 esp32:
   board: esp32-c3-devkitm-1
