@@ -8,11 +8,12 @@
 esphome:
   name: my-vent
   friendly_name: My Vent
+  min_version: 2024.6.0
 
 esp32:
   board: esp32-c3-devkitm-1
   framework:
-    type: arduino
+    type: esp-idf #https://developers.esphome.io/blog/2025/06/18/sunsetting-support-for-idf-4x/
 
 # Enable logging
 logger:
