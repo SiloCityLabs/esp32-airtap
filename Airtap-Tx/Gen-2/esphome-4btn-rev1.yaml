@@ -20,12 +20,12 @@ esphome:
   # configuration and updates.
   project:
     name: silocitylabs.airtap-esp32-4btn
-    version: "1.3.0"
+    version: "1.3.1"
 
 esp32:
-  board: esp32-c3-devkitm-1
+  board: seeed_xiao_esp32c3
   framework:
-    type: esp-idf
+    type: esp-idf #https://developers.esphome.io/blog/2025/06/18/sunsetting-support-for-idf-4x/
 
 # Enable logging
 logger:

@@ -1,42 +1,63 @@
-############################################################################################################
-## Airtap T-Series Vent Controller 3 Button Revision 1
-## This version has been replaced by rev2 and is no longer supported
-## This version is only here for historical purposes and support
-## Wont be submitted to the ESPHome repository
-############################################################################################################
+# Description: ESPHome configuration for the AirTap T-Series Ventilation System 4 Button
+# https://github.com/SiloCityLabs/ac-infinity-esp32/
+
+
+# These substitutions allow the end user to override certain values
+substitutions:
+  name: "airtap-esp32-4btn"
+  friendly_name: "AirTap Vent"
+
+  # If you deactivate this it also deactivates the improv_serial option. See here for more info: https://esphome.io/components/improv_serial
+  log_level: "INFO"    
 
 esphome:
-  name: my-vent
-  friendly_name: My Vent
-  min_version: 2024.6.0
+  name: "${name}"
+  friendly_name: "${friendly_name}"
+  name_add_mac_suffix: true
+  min_version: 2025.6.0 #https://developers.esphome.io/blog/2025/06/18/sunsetting-support-for-idf-4x/
+
+  # This will allow for (future) project identification,
+  # configuration and updates.
+  project:
+    name: silocitylabs.airtap-esp32-4btn-rev2
+    version: "1.3.1"
 
 esp32:
-  board: seeed_xiao_esp32c3
+  board: seeed_xiao_esp32c6
   framework:
     type: esp-idf #https://developers.esphome.io/blog/2025/06/18/sunsetting-support-for-idf-4x/
 
 # Enable logging
 logger:
+  level: "${log_level}"
 
-# Enable Home Assistant API
+# API is a requirement of the dashboard import.
 api:
-  encryption:
-    key: 
 
+# OTA is required for Over-the-Air updating
 ota:
-  - platform: esphome
-    password: 
+  id: airtap_ota
+  platform: esphome
+
+# This should point to the public location of this yaml file.
+dashboard_import:
+  package_import_url: github://SiloCityLabs/ac-infinity-esp32/Airtap-Tx/Gen-2/esphome-4btn-rev2.yaml@main
+  import_full_config: true
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "My-Vent Fallback Hotspot"
-    password: ""
 
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device.
 captive_portal:
+
+# Sets up Bluetooth LE (Only on ESP32) to allow the user
+# to provision wifi credentials to the device.
+esp32_improv:
+  authorizer: none
+
+# Sets up the improv via serial client for Wi-Fi provisioning
+improv_serial:
 
 i2c:
   id: airtap_i2c
@@ -54,10 +75,6 @@ globals:
     type: bool
     restore_value: yes
     initial_value: 'false'
-  - id: display_enabled
-    type: bool
-    restore_value: yes
-    initial_value: 'true'
 
 switch:
   - platform: template
@@ -75,21 +92,6 @@ switch:
       - lambda: |-
           id(panel_disabled) = false;
           id(panel_disable_switch).publish_state(false);
-  - platform: template
-    name: "Display"
-    id: display_switch
-    restore_mode: RESTORE_DEFAULT_ON
-    icon: mdi:monitor
-    lambda: |-
-      return !id(display_enabled);
-    turn_on_action:
-      - lambda: |-
-          id(display_enabled) = false;
-          id(display_switch).publish_state(true);
-    turn_off_action:
-      - lambda: |-
-          id(display_enabled) = true;
-          id(display_switch).publish_state(false);
 
 button:
   - platform: restart
@@ -118,6 +120,11 @@ sensor:
       - 3.389kOhm -> 0°C
       - 10.0kOhm -> 25°C
       - 27.219kOhm -> 50°C
+      # - 10.0kOhm -> 28.88°C
+      # # - 10.86kOhm -> 23.55°C
+      # - 13kOhm -> 16.94°C
+      # - 17kOhm -> 9.44°C
+
     name: "AC Infinity Temperature"
     id: temp_sensor
     unit_of_measurement: "°C"
@@ -135,18 +142,17 @@ sensor:
     id: adc_sensor
     attenuation: 12db
 
+  - platform: wifi_signal
+    id: esp_wifi_signal
+    name: "WiFi Signal"
+    update_interval: 60s
+
 output:
   - platform: ledc
     pin: 
       number: GPIO2
       ignore_strapping_warning: true
     id: pwm_output_1
-    frequency: 1000 Hz
-    # power_supply: fan_speed
-
-  - platform: ledc
-    pin: GPIO3
-    id: pwm_output_2
     frequency: 1000 Hz
     # power_supply: fan_speed
 
@@ -166,7 +172,6 @@ display:
       float temp_f = (id(temp_sensor).state * 9.0 / 5.0) + 32.0;
       it.printf(0, 14, id(myfont), "Temp: %.1f°F", temp_f);
       it.printf(0, 28, id(myfont), "Fan Speed: %d", id(fan_speed));
-
 
 font:
   - file: "gfonts://Roboto"
@@ -191,16 +196,14 @@ binary_sensor:
             }
 
   - platform: gpio
-    pin: 
-      number: GPIO8
-      ignore_strapping_warning: true
+    pin: GPIO20
     name: "Up Button"
     id: button_up
     on_press:
       then:
         - lambda: |-
             if (!id(panel_disabled)) {
-              if (id(fan_speed) < 10){
+              if (id(fan_speed) < 10){ 
                 id(fan_speed) += 1;
                 id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
               }
@@ -208,7 +211,7 @@ binary_sensor:
 
   - platform: gpio
     pin: 
-      number: GPIO9
+      number: GPIO8
       ignore_strapping_warning: true
     name: "Down Button"
     id: button_down
@@ -216,10 +219,28 @@ binary_sensor:
       then:
         - lambda: |-
             if (!id(panel_disabled)) {
-              if (id(fan_speed) > 0){
+              if (id(fan_speed) > 0){ 
                 id(fan_speed) -= 1;
                 id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
               }
+            }
+  
+  - platform: gpio
+    pin: 
+      number: GPIO9
+      ignore_strapping_warning: true
+    name: "Toggle Button"
+    id: button_toggle
+    on_press:
+      then:
+        - lambda: |-
+            if (!id(panel_disabled)) {
+              if (id(fan_speed) == 0) {
+                id(fan_speed) = 10;
+              } else {
+                id(fan_speed) = 0;
+              }
+              id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
             }
 
 light:
@@ -227,12 +248,6 @@ light:
     output: pwm_output_1
     name: "Fan 1 Speed"
     id: fan_1
-    internal: true  # Hide this from Home Assistant
-
-  - platform: monochromatic
-    output: pwm_output_2
-    name: "Fan 2 Speed"
-    id: fan_2
     internal: true  # Hide this from Home Assistant
 
 interval:
@@ -246,15 +261,5 @@ interval:
             } else if (id(fan_speed) == 1) {
               return 0.38;  // Minimum value to start the fan
             } else {
-              return (id(fan_speed) + 3) / 13.0;
-            }
-      - light.turn_on:
-          id: fan_2
-          brightness: !lambda |-
-            if (id(fan_speed) == 0) {
-              return 0.0;
-            } else if (id(fan_speed) == 1) {
-              return 0.38;  // Minimum value to start the fan
-            } else {
-              return (id(fan_speed) + 3) / 13.0;
+              return (id(fan_speed) + 4) / 14.0;
             }
