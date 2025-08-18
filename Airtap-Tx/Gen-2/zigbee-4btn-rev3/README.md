@@ -1,16 +1,15 @@
-# AIRTap Zigbee 4-Button Remote
+# Airtap Zigbee 4-Button PCB Replacement
 
-A Zigbee-enabled 4-button remote control device for AC Infinity fan controllers, built on ESP32-C6 with native IEEE 802.15.4 radio support.
+A Zigbee-enabled 4-button PCB replacement for AC Infinity vent fans, built on ESP32-C6 with native IEEE 802.15.4 radio support.
 
 ## Overview
 
-The AIRTap Zigbee 4-Button Remote is a smart remote control that allows wireless control of AC Infinity fan systems through Zigbee networks. The device features:
+The Airtap Zigbee 4-Button PCB is a smart pcb replacement that allows wireless control of AC Infinity fan systems through Zigbee networks. The device features:
 
 - **4 Physical Buttons**: Mode, Up, Down, and Toggle controls
 - **Zigbee Connectivity**: Native IEEE 802.15.4 radio on ESP32-C6
 - **Fan Speed Control**: 10-speed fan control (0-100%)
 - **Temperature Monitoring**: Built-in NTC temperature sensor
-- **Battery Efficient**: Optimized for long battery life
 - **Easy Pairing**: Simple pairing process with Zigbee hubs
 
 ## Technical Specifications
@@ -21,7 +20,6 @@ The AIRTap Zigbee 4-Button Remote is a smart remote control that allows wireless
 - **Buttons**: 4 tactile buttons with debouncing
 - **Temperature Sensor**: NTC thermistor with ADC
 - **PWM Output**: Fan speed control via PWM
-- **Power**: Battery powered with low-power modes
 
 ### Zigbee Specifications
 - **Profile**: Zigbee Home Automation (ZHA)
@@ -76,23 +74,24 @@ The AIRTap Zigbee 4-Button Remote is a smart remote control that allows wireless
 ## Integration with Zigbee Hubs
 
 ### Supported Hubs
-- **Home Assistant** (with ZHA or Zigbee2MQTT)
-- **Philips Hue Bridge**
-- **Samsung SmartThings**
-- **Amazon Echo Plus/Show**
-- **IKEA TRÅDFRI Gateway**
-- **Tuya Zigbee Gateway**
+- **Home Assistant** (untested)
+- **Philips Hue Bridge** (untested)
+- **Samsung SmartThings** (untested)
+- **Amazon Echo Plus/Show** (untested)
+- **IKEA TRÅDFRI Gateway** (untested)
+- **Tuya Zigbee Gateway** (untested)
+- **Hubitat** (untested)
 
 ### Device Recognition
 The device appears as an **On/Off Light** in most Zigbee hubs:
 - **Device Type**: On/Off Light
 - **Manufacturer**: AC Infinity
-- **Model**: AIRTap-4BTN
+- **Model**: Airtap-4BTN
 - **Endpoints**: 1 (Light control)
 
 ### Control Methods
 - **On/Off**: Toggle fan power
-- **Level Control**: Adjust fan speed (0-100%)
+- **Level Control**: Adjust fan speed (0-10)
 - **Direct Control**: Use physical buttons
 - **Remote Control**: Use hub's mobile app
 
@@ -106,14 +105,12 @@ The device appears as an **On/Off Light** in most Zigbee hubs:
 5. **Retry**: Device automatically retries pairing every 5 seconds
 
 ### Connection Issues
-1. **Battery**: Check battery level
 2. **Range**: Move device closer to hub
 3. **Obstacles**: Remove metal objects between device and hub
 4. **Network**: Check if hub's network is stable
 
 ### Button Not Responding
 1. **Reset**: Try factory reset
-2. **Battery**: Replace batteries
 3. **Physical**: Check button contacts
 4. **Firmware**: Device may need firmware update
 
@@ -145,7 +142,6 @@ zigbee-4btn-rev3/
 ```
 
 ### Key Features Implemented
-- **Zigbee End Device**: Optimized for battery life
 - **Network Steering**: Automatic network discovery and joining
 - **Factory Reset**: Complete network removal
 - **Button Handling**: Debounced button input with special functions
