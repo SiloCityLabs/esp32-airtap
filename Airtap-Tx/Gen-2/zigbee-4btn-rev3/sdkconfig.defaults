@@ -1,0 +1,14 @@
+# Enable Zigbee
+CONFIG_ZB_ENABLED=y
+
+# Configure as Zigbee End Device (ZED) for the 4-button remote
+CONFIG_ZB_ZED=y
+
+# Use native 15.4 radio (ESP32-C6 has built-in IEEE 802.15.4 support)
+CONFIG_ZB_RADIO_NATIVE=y
+
+# Enable Zigbee debug mode for development
+CONFIG_ZB_DEBUG_MODE=y
+
+# Flash memory size (fix the warning about 2MB vs 8MB)
+CONFIG_ESPTOOLPY_FLASHSIZE_2MB=y

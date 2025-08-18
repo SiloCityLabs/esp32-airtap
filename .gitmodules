@@ -1,0 +1,3 @@
+[submodule "Airtap-Tx/Gen-2/zigbee-4btn-rev3/components/esp-zigbee-sdk"]
+	path = Airtap-Tx/Gen-2/zigbee-4btn-rev3/components/esp-zigbee-sdk
+	url = https://github.com/espressif/esp-zigbee-sdk
