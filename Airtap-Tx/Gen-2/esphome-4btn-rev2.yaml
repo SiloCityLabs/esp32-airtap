@@ -151,7 +151,6 @@ output:
   - platform: ledc
     pin: 
       number: GPIO0
-      ignore_strapping_warning: true
     id: pwm_output_1
     frequency: 1000 Hz
     # power_supply: fan_speed
@@ -212,7 +211,6 @@ binary_sensor:
   - platform: gpio
     pin: 
       number: GPIO19
-      ignore_strapping_warning: true
     name: "Down Button"
     id: button_down
     on_press:
@@ -228,7 +226,6 @@ binary_sensor:
   - platform: gpio
     pin: 
       number: GPIO20
-      ignore_strapping_warning: true
     name: "Toggle Button"
     id: button_toggle
     on_press:

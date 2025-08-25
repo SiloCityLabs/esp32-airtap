@@ -141,7 +141,6 @@ output:
   - platform: ledc
     pin: 
       number: GPIO2
-      ignore_strapping_warning: true
     id: pwm_output_1
     frequency: 1000 Hz
     # power_supply: fan_speed
