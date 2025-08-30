@@ -31,6 +31,11 @@ static void trigger_pairing_mode(void);
 static esp_err_t zb_attribute_handler(const esp_zb_zcl_set_attr_value_message_t *message);
 static esp_err_t zb_action_handler(esp_zb_core_action_callback_id_t callback_id, const void *message);
 
+// Add vendor information constants at the top after the includes
+#define MANUFACTURER_NAME               "\x0C""SiloCityLabs"
+#define MODEL_IDENTIFIER                "\x0F""airtap-4btn-rev2"
+#define SW_BUILD_ID                     "\x08""1.0.0"
+
 void zigbee_init(void) {
     // Initialize Zigbee platform
     esp_zb_platform_config_t config_zb = {
@@ -228,16 +233,42 @@ void zigbee_task(void *pvParameters) {
     };
     esp_zb_init(&zb_nwk_cfg);
     
-    // Create a basic on/off light endpoint that we'll extend with custom functionality
-    esp_zb_on_off_light_cfg_t light_cfg = ESP_ZB_DEFAULT_ON_OFF_LIGHT_CONFIG();
-    esp_zb_ep_list_t *esp_zb_light_ep = esp_zb_on_off_light_ep_create(HA_ESP_LIGHT_ENDPOINT, &light_cfg);
+    // Create a custom endpoint with proper vendor information
+    esp_zb_cluster_list_t *cluster_list = esp_zb_zcl_cluster_list_create();
+    
+    // Create basic cluster with vendor information
+    esp_zb_color_dimmable_light_cfg_t light_cfg = ESP_ZB_DEFAULT_COLOR_DIMMABLE_LIGHT_CONFIG();
+    esp_zb_attribute_list_t *basic_cluster = esp_zb_basic_cluster_create(&(light_cfg.basic_cfg));
+    ESP_ERROR_CHECK(esp_zb_basic_cluster_add_attr(basic_cluster, ESP_ZB_ZCL_ATTR_BASIC_MANUFACTURER_NAME_ID, MANUFACTURER_NAME));
+    ESP_ERROR_CHECK(esp_zb_basic_cluster_add_attr(basic_cluster, ESP_ZB_ZCL_ATTR_BASIC_MODEL_IDENTIFIER_ID, MODEL_IDENTIFIER));
+    ESP_ERROR_CHECK(esp_zb_basic_cluster_add_attr(basic_cluster, ESP_ZB_ZCL_ATTR_BASIC_SW_BUILD_ID, SW_BUILD_ID));
+    ESP_ERROR_CHECK(esp_zb_cluster_list_add_basic_cluster(cluster_list, basic_cluster, ESP_ZB_ZCL_CLUSTER_SERVER_ROLE));
+    
+    // Add identify cluster
+    ESP_ERROR_CHECK(esp_zb_cluster_list_add_identify_cluster(cluster_list, esp_zb_identify_cluster_create(&(light_cfg.identify_cfg)), ESP_ZB_ZCL_CLUSTER_SERVER_ROLE));
+    
+    // Add on/off cluster
+    ESP_ERROR_CHECK(esp_zb_cluster_list_add_on_off_cluster(cluster_list, esp_zb_on_off_cluster_create(&(light_cfg.on_off_cfg)), ESP_ZB_ZCL_CLUSTER_SERVER_ROLE));
+    
+    // Add level control cluster for fan speed control
+    ESP_ERROR_CHECK(esp_zb_cluster_list_add_level_cluster(cluster_list, esp_zb_level_cluster_create(&(light_cfg.level_cfg)), ESP_ZB_ZCL_CLUSTER_SERVER_ROLE));
+    
+    // Create endpoint with custom clusters
+    esp_zb_ep_list_t *ep_list = esp_zb_ep_list_create();
+    esp_zb_endpoint_config_t endpoint_config = {
+        .endpoint = HA_ESP_LIGHT_ENDPOINT,
+        .app_profile_id = ESP_ZB_AF_HA_PROFILE_ID,
+        .app_device_id = ESP_ZB_HA_COLOR_DIMMABLE_LIGHT_DEVICE_ID,
+        .app_device_version = 0
+    };
+    esp_zb_ep_list_add_ep(ep_list, cluster_list, endpoint_config);
 
     // Set Basic cluster Manufacturer/Model so Z2M shows proper info
     // We'll set these attributes after device registration
     ESP_LOGI(TAG, "Device created with manufacturer: SiloCityLabs, model: airtap-4btn-rev2");
     
     // Register device and start
-    esp_zb_device_register(esp_zb_light_ep);
+    esp_zb_device_register(ep_list);
     esp_zb_core_action_handler_register(zb_action_handler);
     esp_zb_set_primary_network_channel_set(ESP_ZB_TRANSCEIVER_ALL_CHANNELS_MASK); // Scan all channels
     ESP_ERROR_CHECK(esp_zb_start(false));

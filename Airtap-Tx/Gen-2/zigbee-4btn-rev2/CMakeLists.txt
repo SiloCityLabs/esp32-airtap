@@ -7,4 +7,4 @@ set(EXTRA_COMPONENT_DIRS
 )
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(zigbee-4btn-rev3)
+project(zigbee-4btn-rev2)

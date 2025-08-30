@@ -6,6 +6,8 @@
 #include "esp_log.h"
 #include "ha/esp_zigbee_ha_standard.h"
 #include "esp_zigbee_core.h"
+#include "esp_zigbee_cluster.h"
+#include "esp_zigbee_endpoint.h"
 
 // Zigbee state
 extern bool pairing_mode_active;

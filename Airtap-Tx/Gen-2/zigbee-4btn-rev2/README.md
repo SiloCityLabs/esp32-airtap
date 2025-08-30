@@ -130,7 +130,7 @@ pio run -e esp32c6 -t upload
 
 ### Project Structure
 ```
-zigbee-4btn-rev3/
+zigbee-4btn-rev2/
 ├── src/
 │   └── main.c              # Main application code
 ├── components/

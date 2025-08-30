@@ -231,3 +231,6 @@ interval:
             } else {
               return (id(fan_speed) + 3) / 13.0;
             }
+
+
+## Todo: Implement RF Switch
