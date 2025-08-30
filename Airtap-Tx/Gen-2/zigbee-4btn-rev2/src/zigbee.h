@@ -17,6 +17,11 @@ extern bool zb_joined;
 // Endpoint used by our device
 #define HA_ESP_LIGHT_ENDPOINT 10
 
+// Add vendor information constants at the top after the includes
+#define MANUFACTURER_NAME               "\x0C""SiloCityLabs"
+#define MODEL_IDENTIFIER                "\x0F""airtap-4btn-rev2"
+#define SW_BUILD_ID                     "\x08""1.0.0"
+
 // Function prototypes
 void zigbee_init(void);
 void zigbee_start_pairing(void);

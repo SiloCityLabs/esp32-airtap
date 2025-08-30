@@ -25,7 +25,7 @@ button_event_t buttons_scan(void) {
     uint32_t current_time = (uint32_t)(esp_timer_get_time() / 1000);
     
     // Debounce time
-    if (current_time - last_press_time < 200) {
+    if (current_time - last_press_time < 500) {
         return BUTTON_EVENT_NONE;
     }
     

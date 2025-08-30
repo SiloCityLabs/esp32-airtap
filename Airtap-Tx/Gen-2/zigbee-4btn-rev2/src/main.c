@@ -11,6 +11,7 @@
 // Include our modular components
 #include "buttons.h"
 #include "led_control.h"
+#include "fan_control.h"
 #include "temperature.h"
 #include "oled_display.h"
 #include "zigbee.h"
@@ -23,7 +24,7 @@ static int current_fan_speed = 0;
 // Button event handler
 void buttons_handle_event(button_event_t event) {
     switch (event) {
-        case BUTTON_EVENT_UP_PRESS:
+        case BUTTON_EVENT_UP_PRESS: // SW4 button
             if (current_fan_speed < 10) {
                 current_fan_speed++;
                 fan_set_speed(current_fan_speed);
@@ -31,7 +32,7 @@ void buttons_handle_event(button_event_t event) {
             }
             break;
             
-        case BUTTON_EVENT_DOWN_PRESS:
+        case BUTTON_EVENT_DOWN_PRESS: // SW3 button
             if (current_fan_speed > 0) {
                 current_fan_speed--;
                 fan_set_speed(current_fan_speed);
@@ -39,28 +40,28 @@ void buttons_handle_event(button_event_t event) {
             }
             break;
             
-        case BUTTON_EVENT_TOGGLE_PRESS:
+        case BUTTON_EVENT_TOGGLE_PRESS: // SW2 button
             if (current_fan_speed == 0) {
                 // Turn fan on to max speed
                 current_fan_speed = 10;
-                led_set(true);
+                // led_set(true);
                 fan_set_speed(current_fan_speed);
                 ESP_LOGI(TAG, "Fan toggled ON to speed %d", current_fan_speed);
             } else {
                 // Turn fan off
                 current_fan_speed = 0;
-                led_set(false);
+                // led_set(false);
                 fan_set_speed(current_fan_speed);
                 ESP_LOGI(TAG, "Fan toggled OFF (speed %d)", current_fan_speed);
             }
             break;
             
-        case BUTTON_EVENT_TOGGLE_LONG_PRESS:
+        case BUTTON_EVENT_TOGGLE_LONG_PRESS: // SW2 button
             ESP_LOGI(TAG, "Factory reset requested");
             zigbee_factory_reset();
             break;
             
-        case BUTTON_EVENT_MODE_PRESS:
+        case BUTTON_EVENT_MODE_PRESS: // SW1 button
             ESP_LOGI(TAG, "Pairing mode requested");
             if (!pairing_mode_active) {
                 ESP_LOGI(TAG, "Starting pairing mode");
@@ -85,6 +86,7 @@ void app_main(void) {
     // Initialize all components
     buttons_init();
     led_control_init();
+    fan_control_init();
     temperature_init();
     oled_init();
     zigbee_init();

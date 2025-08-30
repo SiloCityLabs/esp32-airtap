@@ -4,7 +4,7 @@ dependencies:
     source:
       path: /home/ldrrp/Workspaces/ac-infinity-esp32/Airtap-Tx/Gen-2/zigbee-4btn-rev2/components/esp-zigbee-sdk/components/esp-zigbee-lib
       type: local
-    version: 1.6.6
+    version: 1.6.7
   espressif/cmake_utilities:
     component_hash: 351350613ceafba240b761b4ea991e0f231ac7a9f59a9ee901f751bddc0bb18f
     dependencies:
@@ -35,6 +35,6 @@ direct_dependencies:
 - espressif/esp-zboss-lib
 - espressif/esp-zigbee-lib
 - idf
-manifest_hash: 3564b3fb4c194bce560541a03092ef8b12e987e58078bbf15c42908a6ba136e4
+manifest_hash: 67b1e0d98b5e4cabf79053ce63dea9245bb6c67d67ed3f4eaed203f7dce2f6fe
 target: esp32c6
 version: 2.0.0

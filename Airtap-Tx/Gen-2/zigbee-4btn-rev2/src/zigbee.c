@@ -1,5 +1,6 @@
 #include "zigbee.h"
 #include "led_control.h"
+#include "fan_control.h"
 #include "temperature.h"
 #include "oled_display.h"
 #include "esp_timer.h"
@@ -31,10 +32,6 @@ static void trigger_pairing_mode(void);
 static esp_err_t zb_attribute_handler(const esp_zb_zcl_set_attr_value_message_t *message);
 static esp_err_t zb_action_handler(esp_zb_core_action_callback_id_t callback_id, const void *message);
 
-// Add vendor information constants at the top after the includes
-#define MANUFACTURER_NAME               "\x0C""SiloCityLabs"
-#define MODEL_IDENTIFIER                "\x0F""airtap-4btn-rev2"
-#define SW_BUILD_ID                     "\x08""1.0.0"
 
 void zigbee_init(void) {
     // Initialize Zigbee platform
@@ -180,10 +177,8 @@ static esp_err_t zb_attribute_handler(const esp_zb_zcl_set_attr_value_message_t 
                 zcl_onoff_attr = state ? 1 : 0;
                 
                 if (state) {
-                    led_set(true);
                     fan_set_speed(10); // Turn fan on to max speed
                 } else {
-                    led_set(false);
                     fan_set_speed(0); // Turn fan off
                 }
             }
@@ -192,15 +187,12 @@ static esp_err_t zb_attribute_handler(const esp_zb_zcl_set_attr_value_message_t 
         else if (message->info.cluster == ESP_ZB_ZCL_CLUSTER_ID_LEVEL_CONTROL) {
             if (message->attribute.id == ESP_ZB_ZCL_ATTR_LEVEL_CONTROL_CURRENT_LEVEL_ID && message->attribute.data.type == ESP_ZB_ZCL_ATTR_TYPE_U8) {
                 uint8_t level = message->attribute.data.value ? *(uint8_t *)message->attribute.data.value : 0;
-                ESP_LOGI(TAG, "Level set to %d", level);
+                ESP_LOGI(TAG, "Fan level set to %d", level);
                 zcl_level_attr = level;
                 
                 // Map level (0-255) to fan speed (0-10)
                 uint8_t fan_speed = (level * 10) / 255;
                 fan_set_speed(fan_speed);
-                
-                // Update LED state based on level
-                led_set(level > 0);
             }
         }
     }
@@ -258,14 +250,10 @@ void zigbee_task(void *pvParameters) {
     esp_zb_endpoint_config_t endpoint_config = {
         .endpoint = HA_ESP_LIGHT_ENDPOINT,
         .app_profile_id = ESP_ZB_AF_HA_PROFILE_ID,
-        .app_device_id = ESP_ZB_HA_COLOR_DIMMABLE_LIGHT_DEVICE_ID,
+        .app_device_id = ESP_ZB_HA_ON_OFF_LIGHT_DEVICE_ID,
         .app_device_version = 0
     };
     esp_zb_ep_list_add_ep(ep_list, cluster_list, endpoint_config);
-
-    // Set Basic cluster Manufacturer/Model so Z2M shows proper info
-    // We'll set these attributes after device registration
-    ESP_LOGI(TAG, "Device created with manufacturer: SiloCityLabs, model: airtap-4btn-rev2");
     
     // Register device and start
     esp_zb_device_register(ep_list);
