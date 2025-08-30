@@ -14,6 +14,9 @@ setup: ## Setup the environment
 	source .venv/bin/activate && \
 	pip install -U platformio
 
+update-submodules: ## Update the submodules
+	git submodule update --init --recursive
+
 build: ## Build the firmware for the zigbee device
 	source .venv/bin/activate && \
 	pio run -e esp32c6
