@@ -20,7 +20,7 @@ esphome:
   # configuration and updates.
   project:
     name: silocitylabs.airtap-esp32-4btn-rev2
-    version: "1.4.1"
+    version: "1.4.2"
 
 esp32:
   board: seeed_xiao_esp32c6
@@ -193,6 +193,17 @@ binary_sensor:
       - delayed_off: 300ms
     pronto:
       data: "0000 006D 0022 0000 015D 00AB 0017 0040 0018 0014 0018 0040 0018 0015 0017 0014 0018 0040 0017 0013 0017 003F 0019 0014 0018 0040 0017 0015 0017 0040 0018 0040 0017 0013 0017 0040 0018 0015 0018 0040 0017 0040 0018 0013 0018 0014 0018 0040 0018 0040 0018 0040 0017 003F 0018 0013 0018 0014 0018 0040 0017 0040 0017 0015 0018 0013 0017 0014 0017 0014 0018 0180"
+    on_press:
+      then:
+        - lambda: |-
+            if (!id(panel_disabled)) {
+              if (id(fan_speed) == 0) {
+                id(fan_speed) = 10;
+              } else {
+                id(fan_speed) = 0;
+              }
+              id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
+            }
 
   # Fan
   - platform: remote_receiver
@@ -223,6 +234,15 @@ binary_sensor:
       - delayed_off: 300ms
     pronto:
       data: "0000 006D 0022 0000 015D 00AB 0017 0040 0017 0014 0017 0040 0017 0015 0018 0014 0017 0040 0017 0013 0017 003F 0019 0014 0018 0040 0018 0015 0017 0040 0017 0040 0017 0013 0017 0040 0017 0015 0017 0014 0018 0040 0018 0014 0017 003F 0018 0040 0018 0015 0017 0040 0017 003F 0019 0040 0017 0013 0017 0040 0017 0015 0018 0014 0017 0040 0017 0014 0019 0012 0019 0180"
+    on_press:
+      then:
+        - lambda: |-
+            if (!id(panel_disabled)) {
+              if (id(fan_speed) > 0){ 
+                id(fan_speed) -= 1;
+                id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
+              }
+            }
 
   # Plus
   - platform: remote_receiver
@@ -233,6 +253,15 @@ binary_sensor:
       - delayed_off: 300ms
     pronto:
       data: "0000 006D 0022 0000 015D 00AC 0018 0040 0017 0014 0017 0040 0017 0015 0018 0014 0017 0040 0017 0013 0017 003F 0019 0014 0018 0040 0017 0015 0017 0040 0017 0040 0018 0013 0018 0040 0017 0015 0017 0014 0018 0014 0017 0040 0017 0013 0017 0014 0017 0040 0018 0015 0017 0040 0017 003F 0018 0040 0017 0013 0017 0040 0018 0040 0017 0015 0017 0040 0018 0013 0019 0180"
+    on_press:
+      then:
+        - lambda: |-
+            if (!id(panel_disabled)) {
+              if (id(fan_speed) < 10){ 
+                id(fan_speed) += 1;
+                id(fan_speed_number).publish_state(id(fan_speed)); // Publish updated state
+              }
+            }
 
   # Refresh
   - platform: remote_receiver
