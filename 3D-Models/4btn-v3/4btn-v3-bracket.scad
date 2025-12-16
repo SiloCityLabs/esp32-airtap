@@ -113,7 +113,7 @@ difference() {
   }
 }
 
-supportPinDiameter = 1.21;
+supportPinDiameter = 1.4;
 supportPinHeight = 6;
 supportPinBracketWidth = 0.93;
 supportPinBracketHeight = 4.25;

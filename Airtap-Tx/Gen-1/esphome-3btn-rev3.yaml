@@ -61,8 +61,8 @@ improv_serial:
 
 i2c:
   id: airtap_i2c
-  sda: GPIO6
-  scl: GPIO7
+  sda: GPIO22
+  scl: GPIO23
   scan: True
   frequency: 400kHz
 
@@ -133,14 +133,14 @@ sensor:
     resistor: 10kOhm
 
   - platform: adc
-    pin: GPIO4
+    pin: GPIO2
     id: adc_sensor
     attenuation: 12db
 
 output:
   - platform: ledc
     pin: 
-      number: GPIO2
+      number: GPIO0
     id: pwm_output_1
     frequency: 1000 Hz
     # power_supply: fan_speed
@@ -170,7 +170,7 @@ font:
 
 binary_sensor:
   - platform: gpio
-    pin: GPIO10
+    pin: GPIO18
     name: "Mode Button"
     id: button_mode
     on_press:
@@ -185,8 +185,7 @@ binary_sensor:
 
   - platform: gpio
     pin: 
-      number: GPIO8
-      ignore_strapping_warning: true
+      number: GPIO20
     name: "Up Button"
     id: button_up
     on_press:
@@ -199,8 +198,7 @@ binary_sensor:
 
   - platform: gpio
     pin: 
-      number: GPIO9
-      ignore_strapping_warning: true
+      number: GPIO19
     name: "Down Button"
     id: button_down
     on_press:
