@@ -42,6 +42,8 @@ Flash dump:
 
 Manual Pin traces:
 
+![Pin diagram](pin%20diagram.jpg)
+
 IO0 - R29 -> Q5 -> ?? Maybe Buzzer
 IO1 - R6/R34 -> ??
 IO2 - NTC
