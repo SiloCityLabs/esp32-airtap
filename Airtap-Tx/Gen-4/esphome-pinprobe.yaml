@@ -1,0 +1,117 @@
+# Gen-4 OEM pin confirmation firmware (ESP32-C6)
+# Cycles candidate pins with distinct patterns + serial logs.
+#
+# WARNING: OEM boards have Secure Boot + Flash Encryption enabled.
+# Unsigned images will not boot on the production Airtap. Use this on an
+# unlocked ESP32-C6-WROOM-1, or keep oem-firmware-full.bin ready to restore.
+#
+# Candidates under test:
+#   GPIO0  - LEDC 25 kHz PWM  (fan PWM / Q5?)
+#   GPIO1  - 2 kHz beep bursts (piezo?)
+#   GPIO4  - 4 kHz beep bursts (piezo alt?)
+#   GPIO20 - slow 1 Hz blink   (backlight?)
+#   GPIO3  - slow blink        (unknown leftover)
+#   GPIO12 - slow blink        (unknown leftover)
+
+substitutions:
+  name: "airtap-gen4-pinprobe"
+  friendly_name: "AirTap Gen4 PinProbe"
+
+esphome:
+  name: "${name}"
+  friendly_name: "${friendly_name}"
+  on_boot:
+    priority: 600
+    then:
+      - logger.log: "========================================"
+      - logger.log: " Gen-4 pinprobe booted"
+      - logger.log: " GPIO0=PWM25k  GPIO1=2kHz  GPIO4=4kHz"
+      - logger.log: " GPIO20=1Hz    GPIO3=1Hz   GPIO12=1Hz"
+      - logger.log: "========================================"
+
+esp32:
+  board: esp32-c6-devkitc-1
+  variant: ESP32C6
+  framework:
+    type: esp-idf
+
+logger:
+  level: INFO
+  baud_rate: 115200
+
+# Minimal network so ESPHome still builds; not required for probing.
+wifi:
+  ap:
+    ssid: "Gen4-PinProbe"
+    password: "pinprobe1"
+  min_auth_mode: WPA2
+
+captive_portal:
+
+output:
+  - platform: ledc
+    id: out_pwm0
+    pin: GPIO0
+    frequency: 25000 Hz
+
+  - platform: ledc
+    id: out_beep1
+    pin: GPIO1
+    frequency: 2000 Hz
+
+  - platform: ledc
+    id: out_beep4
+    pin: GPIO4
+    frequency: 4000 Hz
+
+  - platform: gpio
+    id: out_io20
+    pin: GPIO20
+
+  - platform: gpio
+    id: out_io3
+    pin: GPIO3
+
+  - platform: gpio
+    id: out_io12
+    pin: GPIO12
+
+globals:
+  - id: phase
+    type: int
+    restore_value: no
+    initial_value: "0"
+
+interval:
+  - interval: 3s
+    then:
+      - lambda: |-
+          id(phase) = (id(phase) + 1) % 6;
+          int p = id(phase);
+          // Idle all outputs first
+          id(out_pwm0).set_level(0.0f);
+          id(out_beep1).set_level(0.0f);
+          id(out_beep4).set_level(0.0f);
+          id(out_io20).turn_off();
+          id(out_io3).turn_off();
+          id(out_io12).turn_off();
+
+          if (p == 0) {
+            ESP_LOGI("pinprobe", "PHASE0 GPIO0 PWM 25kHz @ 50%% (fan?)");
+            id(out_pwm0).set_level(0.50f);
+          } else if (p == 1) {
+            ESP_LOGI("pinprobe", "PHASE1 GPIO1 2kHz @ 50%% (piezo?)");
+            id(out_beep1).set_level(0.50f);
+          } else if (p == 2) {
+            ESP_LOGI("pinprobe", "PHASE2 GPIO4 4kHz @ 50%% (piezo alt?)");
+            id(out_beep4).set_level(0.50f);
+          } else if (p == 3) {
+            ESP_LOGI("pinprobe", "PHASE3 GPIO20 ON (backlight?)");
+            id(out_io20).turn_on();
+          } else if (p == 4) {
+            ESP_LOGI("pinprobe", "PHASE4 GPIO3 ON (unknown)");
+            id(out_io3).turn_on();
+          } else {
+            ESP_LOGI("pinprobe", "PHASE5 GPIO12 ON (unknown)");
+            id(out_io12).turn_on();
+          }

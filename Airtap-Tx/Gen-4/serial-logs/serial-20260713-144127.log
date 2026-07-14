@@ -1,0 +1,233 @@
+# serial capture 2026-07-13T18:41:27.072211+00:00 port=/dev/ttyUSB0 baud=115200 duration=60s
+I (134121) Key_Func    : Up Key event.
+I (134121) InputCoord: ipcd_set_speed() > speed:1
+I (135351) Key_Func    : Up Key event.
+I (135351) InputCoord: ipcd_set_speed() > speed:2
+I (135671) Key_Func    : Up Key event.
+I (135671) InputCoord: ipcd_set_speed() > speed:3
+I (135951) Key_Func    : Up Key event.
+I (135951) InputCoord: ipcd_set_speed() > speed:4
+I (136151) Key_Func    : Up Key event.
+I (136151) InputCoord: ipcd_set_speed() > speed:5
+I (136331) Key_Func    : Up Key event.
+I (136331) InputCoord: ipcd_set_speed() > speed:6
+I (138001) NimBLE_GATT_Server: advertising started!
+I (141331) InputCoord: set_speed() > usr_data.max_target_level:6
+
+I (149601) ct_ir_manage: is_little_endian 系统是小端序 (Little-Endian)
+
+I (149601) ct_ir_manage: power:1, func:0, unit:0, osculation:0, screen:1, is_pair:0, lock:0
+
+I (149611) ct_ir_manage: restore_fact:0, is_muted:0, reserved_2bit:0, level:1
+
+I (149621) ct_ir_manage: target_value:0
+
+I (149621) ct_ir_manage: reserved_byte:0
+
+I (149621) ct_ir_manage: ir_set_power set_power:1
+
+I (149631) HisLog      : gener_log_00_device_power > power on
+
+I (149631) HisLog      : save_one_history_log() > infoLog.flashWriteNum = 8
+
+I (149651) ct_ir_manage: ir_set_unit set unit:0
+
+I (149651) InputCoord: ipcd_set_unit() > unit:0
+I (149651) ct_ir_manage: ir_set_level set level:1
+
+I (149651) InputCoord: ipcd_set_speed() > speed:1
+I (149661) ct_ir_manage: ir_set_screen set screen:1
+
+I (149661) ct_ir_manage: ir_set_lock set lock:0
+
+I (150001) ct_ir_manage: is_little_endian 系统是小端序 (Little-Endian)
+
+I (150001) ct_ir_manage: power:1, func:0, unit:0, osculation:0, screen:1, is_pair:0, lock:0
+
+I (150011) ct_ir_manage: restore_fact:0, is_muted:0, reserved_2bit:0, level:2
+
+I (150021) ct_ir_manage: target_value:0
+
+I (150021) ct_ir_manage: reserved_byte:0
+
+I (150021) ct_ir_manage: ir_set_power set_power:1
+
+I (150031) HisLog      : gener_log_00_device_power > power on
+
+I (150031) HisLog      : save_one_history_log() > infoLog.flashWriteNum = 9
+
+I (150051) ct_ir_manage: ir_set_unit set unit:0
+
+I (150051) InputCoord: ipcd_set_unit() > unit:0
+I (150051) ct_ir_manage: ir_set_level set level:2
+
+I (150051) InputCoord: ipcd_set_speed() > speed:2
+I (150061) ct_ir_manage: ir_set_screen set screen:1
+
+I (150061) ct_ir_manage: ir_set_lock set lock:0
+
+I (150401) ct_ir_manage: is_little_endian 系统是小端序 (Little-Endian)
+
+I (150401) ct_ir_manage: power:1, func:0, unit:0, osculation:0, screen:1, is_pair:0, lock:0
+
+I (150411) ct_ir_manage: restore_fact:0, is_muted:0, reserved_2bit:0, level:3
+
+I (150421) ct_ir_manage: target_value:0
+
+I (150421) ct_ir_manage: reserved_byte:0
+
+I (150421) ct_ir_manage: ir_set_power set_power:1
+
+I (150431) HisLog      : gener_log_00_device_power > power on
+
+I (150431) HisLog      : save_one_history_log() > infoLog.flashWriteNum = 10
+
+I (150451) ct_ir_manage: ir_set_unit set unit:0
+
+I (150451) InputCoord: ipcd_set_unit() > unit:0
+I (150451) ct_ir_manage: ir_set_level set level:3
+
+I (150451) InputCoord: ipcd_set_speed() > speed:3
+I (150461) ct_ir_manage: ir_set_screen set screen:1
+
+I (150461) ct_ir_manage: ir_set_lock set lock:0
+
+I (150801) ct_ir_manage: is_little_endian 系统是小端序 (Little-Endian)
+
+I (150801) ct_ir_manage: power:1, func:0, unit:0, osculation:0, screen:1, is_pair:0, lock:0
+
+I (150811) ct_ir_manage: restore_fact:0, is_muted:0, reserved_2bit:0, level:4
+
+I (150821) ct_ir_manage: target_value:0
+
+I (150821) ct_ir_manage: reserved_byte:0
+
+I (150821) ct_ir_manage: ir_set_power set_power:1
+
+I (150831) HisLog      : gener_log_00_device_power > power on
+
+I (150831) HisLog      : save_one_history_log() > infoLog.flashWriteNum = 11
+
+I (150851) ct_ir_manage: ir_set_unit set unit:0
+
+I (150851) InputCoord: ipcd_set_unit() > unit:0
+I (150851) ct_ir_manage: ir_set_level set level:4
+
+I (150851) InputCoord: ipcd_set_speed() > speed:4
+I (150861) ct_ir_manage: ir_set_screen set screen:1
+
+I (150861) ct_ir_manage: ir_set_lock set lock:0
+
+I (151101) ct_ir_manage: is_little_endian 系统是小端序 (Little-Endian)
+
+I (151101) ct_ir_manage: power:1, func:0, unit:0, osculation:0, screen:1, is_pair:0, lock:0
+
+I (151111) ct_ir_manage: restore_fact:0, is_muted:0, reserved_2bit:0, level:5
+
+I (151121) ct_ir_manage: target_value:0
+
+I (151121) ct_ir_manage: reserved_byte:0
+
+I (151121) ct_ir_manage: ir_set_power set_power:1
+
+I (151131) HisLog      : gener_log_00_device_power > power on
+
+I (151131) HisLog      : save_one_history_log() > infoLog.flashWriteNum = 12
+
+I (151151) ct_ir_manage: ir_set_unit set unit:0
+
+I (151151) InputCoord: ipcd_set_unit() > unit:0
+I (151151) ct_ir_manage: ir_set_level set level:5
+
+I (151151) InputCoord: ipcd_set_speed() > speed:5
+I (151161) ct_ir_manage: ir_set_screen set screen:1
+
+I (151161) ct_ir_manage: ir_set_lock set lock:0
+
+I (151301) adv_rule    : adv_log > app_in_adv = 0, is_empty = 1, is_running = 0, num = 0
+I (151301) adv_rule    : 
+
+I (151501) ct_ir_manage: is_little_endian 系统是小端序 (Little-Endian)
+
+I (151501) ct_ir_manage: power:1, func:0, unit:0, osculation:0, screen:1, is_pair:0, lock:0
+
+I (151511) ct_ir_manage: restore_fact:0, is_muted:0, reserved_2bit:0, level:6
+
+I (151521) ct_ir_manage: target_value:0
+
+I (151521) ct_ir_manage: reserved_byte:0
+
+I (151521) ct_ir_manage: ir_set_power set_power:1
+
+I (151531) HisLog      : gener_log_00_device_power > power on
+
+I (151531) HisLog      : save_one_history_log() > infoLog.flashWriteNum = 13
+
+I (151551) ct_ir_manage: ir_set_unit set unit:0
+
+I (151551) InputCoord: ipcd_set_unit() > unit:0
+I (151551) ct_ir_manage: ir_set_level set level:6
+
+I (151551) InputCoord: ipcd_set_speed() > speed:6
+I (151561) ct_ir_manage: ir_set_screen set screen:1
+
+I (151561) ct_ir_manage: ir_set_lock set lock:0
+
+I (151901) ct_ir_manage: is_little_endian 系统是小端序 (Little-Endian)
+
+I (151901) ct_ir_manage: power:1, func:0, unit:0, osculation:0, screen:1, is_pair:0, lock:0
+
+I (151911) ct_ir_manage: restore_fact:0, is_muted:0, reserved_2bit:0, level:7
+
+I (151921) ct_ir_manage: target_value:0
+
+I (151921) ct_ir_manage: reserved_byte:0
+
+I (151921) ct_ir_manage: ir_set_power set_power:1
+
+I (151931) HisLog      : gener_log_00_device_power > power on
+
+I (151931) HisLog      : save_one_history_log() > infoLog.flashWriteNum = 14
+
+I (151951) ct_ir_manage: ir_set_unit set unit:0
+
+I (151951) InputCoord: ipcd_set_unit() > unit:0
+I (151951) ct_ir_manage: ir_set_level set level:7
+
+I (151951) InputCoord: ipcd_set_speed() > speed:7
+I (151961) ct_ir_manage: ir_set_screen set screen:1
+
+I (151961) ct_ir_manage: ir_set_lock set lock:0
+
+I (153001) NimBLE_GATT_Server: advertising started!
+I (155101) ct_ir_manage: is_little_endian 系统是小端序 (Little-Endian)
+
+I (155101) ct_ir_manage: power:1, func:0, unit:0, osculation:0, screen:0, is_pair:0, lock:0
+
+I (155111) ct_ir_manage: restore_fact:0, is_muted:0, reserved_2bit:0, level:7
+
+I (155121) ct_ir_manage: target_value:0
+
+I (155121) ct_ir_manage: reserved_byte:0
+
+I (155121) ct_ir_manage: ir_set_power set_power:1
+
+I (155131) HisLog      : gener_log_00_device_power > power on
+
+I (155131) HisLog      : save_one_history_log() > infoLog.flashWriteNum = 15
+
+I (155151) ct_ir_manage: ir_set_unit set unit:0
+
+I (155151) InputCoord: ipcd_set_unit() > unit:0
+I (155151) ct_ir_manage: ir_set_screen set screen:0
+
+I (155151) ct_ir_manage: ir_set_lock set lock:0
+
+I (157031) InputCoord: set_speed() > usr_data.max_target_level:7
+
+I (168001) NimBLE_GATT_Server: advertising started!
+I (180701) online_timer: netUsedTimeCount:设备运行时间：0天0小时3分钟
+I (181301) adv_rule    : adv_log > app_in_adv = 0, is_empty = 1, is_running = 0, num = 0
+I (181301) adv_rule    : 
+
+I (183001) NimBLE_GATT_Server: advertising started!

@@ -18,7 +18,9 @@ setup: ## Setup the environment
 # 	source .venv/bin/activate && \
 # 	esphome config esphome-4btn-rev1.yaml
 
-build: ## Build the firmware
+build: build-three build-six ## Build the firmware for both versions
+
+build-three: ## Build the firmware
 	source .venv/bin/activate && \
 	esphome compile Airtap-Tx/Gen-1/esphome-3btn-rev2.yaml && \
 	cp Airtap-Tx/Gen-1/.esphome/build/airtap-esp32-3btn/.pioenvs/airtap-esp32-3btn/firmware.factory.bin firmware.3btn.bin && \

@@ -1,0 +1,250 @@
+# serial capture 2026-07-13T18:38:49.419649+00:00 port=/dev/ttyUSB0 baud=115200 duration=35s
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+RSA-PSS secure boot verification succeeded
+load:0x40875890,len:0x2974
+load:0x4086c110,len:0xc98
+load:0x4086e610,len:0x5608
+entry 0x4086c110
+I (544) cpu_start: Unicore app
+I (552) cpu_start: Pro cpu start user code
+I (553) cpu_start: cpu freq: 160000000 Hz
+I (553) app_init: Application information:
+I (553) app_init: Project name:     smarthome_device_airtap
+I (558) app_init: App version:      2.1
+I (561) app_init: Compile time:     Apr  9 2026 20:33:54
+I (567) app_init: ELF file SHA256:  4654f46ea...
+I (571) app_init: ESP-IDF:          v5.4.1
+I (575) efuse_init: Min chip rev:     v0.0
+I (579) efuse_init: Max chip rev:     v0.99 
+I (582) efuse_init: Chip rev:         v0.2
+I (586) heap_init: Initializing. RAM available for dynamic allocation:
+I (593) heap_init: At 4084A440 len 000321D0 (200 KiB): RAM
+I (598) heap_init: At 4087C610 len 00002F54 (11 KiB): RAM
+I (603) heap_init: At 5000001C len 00003FCC (15 KiB): RTCRAM
+I (609) spi_flash: detected chip: generic
+I (612) spi_flash: flash io: dio
+W (615) flash_encrypt: Flash encryption mode is DEVELOPMENT (not secure)
+I (660) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (661) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (662) coexist: coex firmware version: e727207
+I (666) coexist: coexist rom version 5b8dcfa
+I (671) main_task: Started on CPU0
+I (671) main_task: Calling app_main()
+I (691) main        : --------------------------------------------------------------------------------
+I (691) main        : 		airtap_app()
+I (691) main        : --------------------------------------------------------------------------------
+
+
+I (701) mcu_common  : periodic_timer_cfg() Started timers, time since boot: 99409 us
+I (711) main        : --------------------------------------------------------------------------------
+I (721) main        : 		__init ...
+I (721) main        : --------------------------------------------------------------------------------
+
+
+I (731) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+I (741) gpio: GPIO[6]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+I (751) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+I (761) gpio: GPIO[21]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+I (761) gpio: GPIO[22]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 
+I (771) gpio: GPIO[8]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (781) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (791) gpio: GPIO[11]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (801) gpio: GPIO[15]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (811) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (811) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (821) gpio: GPIO[23]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (831) gpio: GPIO[20]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (841) gpio: GPIO[1]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (851) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (861) gpio: GPIO[2]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 
+I (861) mcu_common  : calibration scheme version is Curve Fitting
+I (871) mcu_common  : Calibration Success
+I (981) mcu_common  : create RMT RX channel
+I (981) mcu_common  : register RX done callback
+I (1031) mcu_common  : enable RMT RX channels
+I (1031) data_manage : read_all_param() <<< start
+I (1041) data_manage : read_all_param() fund a flag -> write_param_id = 0, write_param_num = 0
+I (1041) data_manage : read_all_param() finish >>>
+
+
+I (1041) savAdvance  : read_advance > start...
+I (1051) savAdvance  : sector 423 
+I (1051) savAdvance  : read_advance > fund a flag, write_adv_id = 3, write_adv_num = 3
+
+I (1061) savAdvance  : read_advance > finish...
+
+I (1061) pp: pp rom version: 5b8dcfa
+I (1071) net80211: net80211 rom version: 5b8dcfa
+I (1071) tcpClient   : TCP stask start, and CLEAR event bits
+
+I (1081) wifi:wifi driver task: 40860a30, prio:23, stack:6656, core=0
+I (1091) wifi:wifi firmware version: 79fa3f41ba
+I (1091) wifi:wifi certification version: v7.0
+I (1091) wifi:config NVS flash: enabled
+I (1091) wifi:config nano formatting: disabled
+I (1101) wifi:mac_version:HAL_MAC_ESP32AX_761,ut_version:N, band mode:0x1
+I (1101) wifi:Init data frame dynamic rx buffer num: 32
+I (1111) wifi:Init static rx mgmt buffer num: 5
+I (1111) wifi:Init management short buffer num: 32
+I (1121) wifi:Init dynamic tx buffer num: 32
+I (1121) wifi:Init static tx FG buffer num: 2
+I (1131) wifi:Init static rx buffer size: 1700 (rxctrl:92, csi:512)
+I (1131) wifi:Init static rx buffer num: 10
+I (1141) wifi:Init dynamic rx buffer num: 32
+I (1141) wifi_init: rx ba win: 6
+I (1141) wifi_init: accept mbox: 6
+I (1151) wifi_init: tcpip mbox: 32
+I (1151) wifi_init: udp mbox: 6
+I (1151) wifi_init: tcp mbox: 6
+I (1161) wifi_init: tcp tx win: 5760
+I (1161) wifi_init: tcp rx win: 5760
+I (1161) wifi_init: tcp mss: 1440
+I (1161) wifi_init: WiFi IRAM OP enabled
+I (1171) wifi_init: WiFi RX IRAM OP enabled
+I (1171) wifi_init: WiFi SLP IRAM OP enabled
+wifi:MAC:0xA0 0xF2 0x62 0x71 0xBC 0xE4 
+I (1181) comm_func   : power_on_wireness_mode : hw = 3.0
+I (1181) comm_func   : power_on_wireness_mode : sw = 3.0.15
+I (1191) nvs_param   : nvs_read_param > sw_version
+I (1201) comm_func   : get_version_sta : sw_nvs = 3.0.15
+I (1201) comm_func   : get_version_sta : (sw_version[0] == swV_nvs[0])
+I (1211) comm_func   : get_version_sta : (sw_version[1] == swV_nvs[1])
+I (1211) comm_func   : get_version_sta : (sw_version[2] == swV_nvs[2])
+W (1221) comm_func   : get_version_sta : version_sta = 0(no up or down grade)
+
+I (1231) nvs_param   : nvs_read_param > esp_mode
+W (1231) comm_func   : power_on_wireness_mode --- run ble --- 
+
+I (1241) InputCoord: Init User Data: func 0, mode 0, env 0.
+I (1251) tcpClient   : TCP recv task created
+
+I (1251) app_main: Minimum free heap size: 74228 bytes
+
+I (1251) main_task: Returned from app_main()
+I (1451) _BLE     : ble_init ... 
+
+I (1451) BLE_INIT: Using main XTAL as clock source
+I (1451) BLE_INIT: ble controller commit:[c0eafd3]
+I (1451) BLE_INIT: Bluetooth MAC: a0:f2:62:71:bc:e6
+I (1451) phy_init: phy_version 330,4af1121,Feb  6 2025,14:39:13
+I (1551) phy: libbtbb version: 99f6adc, Feb  6 2025, 14:39:27
+I (1551) BLUFI_EXAMPLE: BLE Host Task Started
+I (1551) BLUFI_EXAMPLE: registered service 0x1800 with handle=1
+I (1551) BLUFI_EXAMPLE: registering characteristic 0x2a00 with def_handle=2 val_handle=3
+
+I (1561) BLUFI_EXAMPLE: registering characteristic 0x2a01 with def_handle=4 val_handle=5
+
+I (1571) BLUFI_EXAMPLE: registered service 0x1801 with handle=6
+I (1571) BLUFI_EXAMPLE: registering characteristic 0x2a05 with def_handle=7 val_handle=8
+
+I (1581) BLUFI_EXAMPLE: registering characteristic 0x2b3a with def_handle=10 val_handle=11
+
+I (1591) BLUFI_EXAMPLE: registering characteristic 0x2b29 with def_handle=12 val_handle=13
+
+I (1601) BLUFI_EXAMPLE: registered service 0xffff with handle=14
+I (1601) BLUFI_EXAMPLE: registering characteristic 0xff01 with def_handle=15 val_handle=16
+
+I (1611) BLUFI_EXAMPLE: registering characteristic 0xff02 with def_handle=17 val_handle=18
+
+I (1621) BLUFI_EXAMPLE: registered service 70d51000-2c7f-4e75-ae8a-d758951ce4e0 with handle=20
+I (1631) BLUFI_EXAMPLE: registering characteristic 70d51001-2c7f-4e75-ae8a-d758951ce4e0 with def_handle=21 val_handle=22
+
+I (1641) BLUFI_EXAMPLE: registering characteristic 70d51002-2c7f-4e75-ae8a-d758951ce4e0 with def_handle=23 val_handle=24
+
+I (1651) BLUFI_EXAMPLE: registered service 0x180a with handle=26
+I (1661) BLUFI_EXAMPLE: registering characteristic 0x2a24 with def_handle=27 val_handle=28
+
+I (1661) BLUFI_EXAMPLE: registering characteristic 0x2a27 with def_handle=29 val_handle=30
+
+I (1671) BLUFI_EXAMPLE: registering characteristic 0x2a28 with def_handle=31 val_handle=32
+
+I (1681) BLUFI_EXAMPLE: registered service 0x8018 with handle=33
+I (1691) BLUFI_EXAMPLE: registering characteristic 0x8020 with def_handle=34 val_handle=35
+
+I (1691) BLUFI_EXAMPLE: registering characteristic 0x8021 with def_handle=37 val_handle=38
+
+I (1701) BLUFI_EXAMPLE: registering characteristic 0x8022 with def_handle=40 val_handle=41
+
+I (1711) BLUFI_EXAMPLE: registering characteristic 0x8023 with def_handle=43 val_handle=44
+
+I (1721) NimBLE: GAP procedure initiated: stop advertising.
+
+I (1721) NimBLE_GATT_Server: device address: A0:F2:62:71:BC:E4
+I (1731) BLUFI_EXAMPLE: BLUFI init finish
+
+I (1731) NimBLE: GAP procedure initiated: advertise; 
+I (1741) NimBLE: disc_mode=2
+I (1741) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=0 adv_itvl_max=0
+I (1751) NimBLE: 
+
+I (1761) BLUFI_EXAMPLE: BLUFI VERSION 0103
+
+I (1761) nvs_param   : nvs_write_param > esp_mode
+I (3441) InputCoord: countdown_trigger() > full_screen countdown_trigger
+I (3441) InputCoord: Init User Data: func 0, mode 0, env 0.
+I (3441) InputCoord: Init rt_disp: func 0, mode 0, layer 2, env 0, level 1.
+I (3451) InputCoord: check_power_state_change() > disp_power_state:1
+W (3461) InputCoord: First setup pairing!
+I (4401) ct_ir_manage: is_little_endian 系统是小端序 (Little-Endian)
+
+I (4401) ct_ir_manage: power:0, func:0, unit:0, osculation:0, screen:1, is_pair:0, lock:0
+
+I (4411) ct_ir_manage: restore_fact:0, is_muted:0, reserved_2bit:0, level:1
+
+I (4411) ct_ir_manage: target_value:0
+
+I (4421) ct_ir_manage: reserved_byte:0
+
+I (4421) ct_ir_manage: ir_set_power set_power:0
+
+I (4431) HisLog      : gener_log_00_device_power > power off
+
+I (4431) HisLog      : save_one_history_log() > infoLog.flashWriteNum = 1
+
+I (4461) InputCoord: check_power_state_change() > disp_power_state:0
+I (5301) ct_ir_manage: is_little_endian 系统是小端序 (Little-Endian)
+
+I (5301) ct_ir_manage: power:1, func:0, unit:0, osculation:0, screen:1, is_pair:0, lock:0
+
+I (5311) ct_ir_manage: restore_fact:0, is_muted:0, reserved_2bit:0, level:1
+
+I (5311) ct_ir_manage: target_value:0
+
+I (5321) ct_ir_manage: reserved_byte:0
+
+I (5321) ct_ir_manage: ir_normal power off to power on
+
+I (5331) ct_ir_manage: ir_set_power set_power:1
+
+I (5331) HisLog      : gener_log_00_device_power > power on
+
+I (5341) HisLog      : save_one_history_log() > infoLog.flashWriteNum = 1
+
+I (5351) ct_ir_manage: ir_set_unit set unit:0
+
+I (5351) InputCoord: ipcd_set_unit() > unit:0
+I (5351) ct_ir_manage: local val diff.ir_set_target set target:0
+
+I (5361) InputCoord: ipcd_set_target_value() > value:0
+I (5361) ct_ir_manage: ir_set_level set level:1
+
+I (5371) InputCoord: ipcd_set_speed() > speed:1
+I (5371) ct_ir_manage: ir_set_osic set osculation:0
+
+I (5381) ct_ir_manage: ir_set_key_muted set key_muted:0
+
+I (5381) ct_ir_manage: ir_set_screen set screen:1
+
+I (5391) ct_ir_manage: ir_set_lock set lock:0
+
+I (5391) InputCoord: check_power_state_change() > disp_power_state:1
+W (5401) InputCoord: First setup pairing!
+I (6361) Key_Func    : Up Key event.
+I (6361) InputCoord: ipcd_set_speed() > speed:2
+I (6621) Key_Func    : Up Key event.
+I (6621) InputCoord: ipcd_set_speed() > speed:3

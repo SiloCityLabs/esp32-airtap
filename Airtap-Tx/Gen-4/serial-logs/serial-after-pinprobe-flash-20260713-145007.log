@@ -1,0 +1,204 @@
+# after pinprobe flash 2026-07-13T18:50:07.934461+00:00
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x10 (LP_WDT_SYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x10 (LP_WDT_SYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x10 (LP_WDT_SYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x7 (TG0_WDT_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40018bea
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0xff not 0xe7). Image not V2 signed?
+RSA-PSS secure boot verification failed
+ets_main.c 331 
+ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x10 (LP_WDT_SYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:2
+Valid secure boot key blocks: 0
+No signature block magic byte found at signature sector (found 0

@@ -1,0 +1,64 @@
+esptool v5.2.0
+Serial port /dev/ttyUSB0:
+Note: Pre-connection option "no-reset" was selected. Connection may fail if the chip is not in bootloader or flasher stub mode.
+Connecting....
+Connected to ESP32-C6 on /dev/ttyUSB0:
+Chip type:          ESP32-C6 (QFN40) (revision v0.2)
+Features:           Wi-Fi 6, BT 5 (LE), IEEE802.15.4, Single Core + LP Core, 160MHz, Unknown Embedded Flash
+Crystal frequency:  40MHz
+MAC:                a0:f2:62:ff:fe:71:bc:e4
+BASE MAC:           a0:f2:62:71:bc:e4
+MAC_EXT:            ff:fe
+
+Uploading stub flasher...
+Running stub flasher...
+Stub flasher running.
+
+Security Information:
+=====================
+Flags: 0x000004f1 (0b10011110001)
+Key Purposes: (8, 4, 9, 0, 0, 0, 12)
+  BLOCK_KEY0 - HMAC_UP
+  BLOCK_KEY1 - XTS_AES_128_KEY
+  BLOCK_KEY2 - SECURE_BOOT_DIGEST0
+  BLOCK_KEY3 - USER/EMPTY
+  BLOCK_KEY4 - USER/EMPTY
+  BLOCK_KEY5 - USER/EMPTY
+Chip ID: 13
+API Version: 0
+Secure Boot: Enabled
+Secure Boot Key Revocation Status:
+
+	Secure Boot Key1 is Revoked
+
+	Secure Boot Key2 is Revoked
+
+Flash Encryption: Enabled
+SPI Boot Crypt Count (SPI_BOOT_CRYPT_CNT): 0x7
+Icache in UART download mode: Disabled
+JTAG: Permanently Disabled
+
+Staying in bootloader.
+esptool v5.2.0
+Serial port /dev/ttyUSB0:
+Note: Pre-connection option "no-reset" was selected. Connection may fail if the chip is not in bootloader or flasher stub mode.
+Connecting....
+Connected to ESP32-C6 on /dev/ttyUSB0:
+Chip type:          ESP32-C6 (QFN40) (revision v0.2)
+Features:           Wi-Fi 6, BT 5 (LE), IEEE802.15.4, Single Core + LP Core, 160MHz, Unknown Embedded Flash
+Crystal frequency:  40MHz
+MAC:                a0:f2:62:ff:fe:71:bc:e4
+BASE MAC:           a0:f2:62:71:bc:e4
+MAC_EXT:            ff:fe
+
+Uploading stub flasher...
+Running stub flasher...
+Stub flasher running.
+
+Flash Memory Information:
+=========================
+Manufacturer: c8
+Device: 4017
+Detected flash size: 8MB
+
+Staying in bootloader.
