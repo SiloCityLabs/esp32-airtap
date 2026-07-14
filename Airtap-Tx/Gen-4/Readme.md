@@ -44,27 +44,29 @@ Manual Pin traces:
 
 ![Pin diagram](pin%20diagram.jpg)
 
- - IO0 - R29 -> Q5 -> ?? Maybe Buzzer
- - IO1 - R6/R34 -> ??
- - IO2 - NTC
- - IO3 - ??
- - IO4 - ??
- - IO5 - TTP223 TOUCH 1
- - IO6 - TTP223 TOUCH 2
- - IO7 - TTP223 TOUCH 3
- - IO8 - Q4(Transistor) -> CS1621(/CS)
- - IO9 - PAD9
- - IO10 - Q13(Transistor) -> CS1621(/WR)
- - IO11 - Q14(Transistor) -> CS1621(DATA)
- - IO12 - ??
- - IO13 - IRM3638 IR
- - IO15 - Motor Pin 4 (ULN2003A)
- - IO18 - Motor Pin 3 (ULN2003A)
- - IO19 - Motor Pin 2 (ULN2003A)
- - IO20 - ??
- - IO21 - TTP223 TOUCH 4
- - IO22 - TTP223 TOUCH 5
- - IO23 - Motor Pin 1 (ULN2003A)
+| GPIO | Chip / target | Notes |
+| --- | --- | --- |
+| IO0 | Piezo (BZ1) via Q5 | R29 → Q5; likely buzzer drive |
+| IO1 | Fan PWM / power via Q2 | R6/R34 → Q2; PWM path TBD vs Q1 |
+| IO2 | NTC | ADC / temp sense |
+| IO3 | — | Untraced |
+| IO4 | — | Untraced |
+| IO5 | TTP223 (U8) | Touch 1 |
+| IO6 | TTP223 (U6) | Touch 2 |
+| IO7 | TTP223 (U10) | Touch 3 |
+| IO8 | CS1621 via Q4 | `/CS` |
+| IO9 | Header pad | BOOT / download strap |
+| IO10 | CS1621 via Q13 | `/WR` |
+| IO11 | CS1621 via Q14 | `DATA` |
+| IO12 | — | Untraced |
+| IO13 | IRM3638 | IR receiver |
+| IO15 | ULN2003A | Motor pin 4 |
+| IO18 | ULN2003A | Motor pin 3 |
+| IO19 | ULN2003A | Motor pin 2 |
+| IO20 | — | Untraced (backlight candidate?) |
+| IO21 | TTP223 | Touch 4 (hard to probe; firmware input) |
+| IO22 | TTP223 (U12) | Touch 5 |
+| IO23 | ULN2003A | Motor pin 1 |
 
 
 Still missing pin matching:
@@ -77,30 +79,32 @@ Backlight?
 
 CS1621:
 
-1 - LED 1.2
-2 - LED 1.3
-3 - LED 1.4
-4 - LED 1.5
-5 - LED 1.6
-6 - LED 1.7
-7 - LED 1.8
-8 - LED 1.9
-9 - LED 1.10
-10 - /CS
-11 - /WR
-12 - DATA
-13 - GND
-14 - VLCD ?
-15 - VDD
-16 - LED 1.14
-17 - LED 1.13
-18 - LED 1.12
-19 - LED 1.11
-20 - NC
-21 - NC
-22 - NC
-23 - NC
-24 - LED 1.1
+| Pin | Signal |
+| --- | --- |
+| 1 | LED 1.2 |
+| 2 | LED 1.3 |
+| 3 | LED 1.4 |
+| 4 | LED 1.5 |
+| 5 | LED 1.6 |
+| 6 | LED 1.7 |
+| 7 | LED 1.8 |
+| 8 | LED 1.9 |
+| 9 | LED 1.10 |
+| 10 | /CS |
+| 11 | /WR |
+| 12 | DATA |
+| 13 | GND |
+| 14 | VLCD ? |
+| 15 | VDD |
+| 16 | LED 1.14 |
+| 17 | LED 1.13 |
+| 18 | LED 1.12 |
+| 19 | LED 1.11 |
+| 20 | NC |
+| 21 | NC |
+| 22 | NC |
+| 23 | NC |
+| 24 | LED 1.1 |
 
 
 Serial log confirmation (2026-07-13 capture → serial-logs/latest.log):
