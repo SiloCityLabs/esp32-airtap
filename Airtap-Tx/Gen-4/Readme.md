@@ -44,27 +44,27 @@ Manual Pin traces:
 
 ![Pin diagram](pin%20diagram.jpg)
 
-IO0 - R29 -> Q5 -> ?? Maybe Buzzer
-IO1 - R6/R34 -> ??
-IO2 - NTC
-IO3 - ??
-IO4 - ??
-IO5 - TTP223 TOUCH 1
-IO6 - TTP223 TOUCH 2
-IO7 - TTP223 TOUCH 3
-IO8 - Q4(Transistor) -> CS1621(/CS)
-IO9 - PAD9
-IO10 - Q13(Transistor) -> CS1621(/WR)
-IO11 - Q14(Transistor) -> CS1621(DATA)
-IO12 - ??
-IO13 - IRM3638 IR
-IO15 - Motor Pin 4 (ULN2003A)
-IO18 - Motor Pin 3 (ULN2003A)
-IO19 - Motor Pin 2 (ULN2003A)
-IO20 - ??
-IO21 - TTP223 TOUCH 4
-IO22 - TTP223 TOUCH 5
-IO23 - Motor Pin 1 (ULN2003A)
+ - IO0 - R29 -> Q5 -> ?? Maybe Buzzer
+ - IO1 - R6/R34 -> ??
+ - IO2 - NTC
+ - IO3 - ??
+ - IO4 - ??
+ - IO5 - TTP223 TOUCH 1
+ - IO6 - TTP223 TOUCH 2
+ - IO7 - TTP223 TOUCH 3
+ - IO8 - Q4(Transistor) -> CS1621(/CS)
+ - IO9 - PAD9
+ - IO10 - Q13(Transistor) -> CS1621(/WR)
+ - IO11 - Q14(Transistor) -> CS1621(DATA)
+ - IO12 - ??
+ - IO13 - IRM3638 IR
+ - IO15 - Motor Pin 4 (ULN2003A)
+ - IO18 - Motor Pin 3 (ULN2003A)
+ - IO19 - Motor Pin 2 (ULN2003A)
+ - IO20 - ??
+ - IO21 - TTP223 TOUCH 4
+ - IO22 - TTP223 TOUCH 5
+ - IO23 - Motor Pin 1 (ULN2003A)
 
 
 Still missing pin matching:
