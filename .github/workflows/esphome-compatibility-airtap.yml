@@ -1,0 +1,64 @@
+name: ESPHome Stable Compatibility
+
+on:
+  schedule:
+    # Weekly on Thursday at 11:00 UTC (6 AM EST / 7 AM EDT)
+    - cron: '0 11 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-compile:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Gen-2 4-button rev1 (C3)
+            config: Airtap-Tx/Gen-2/esphome-4btn-rev1.yaml
+          - name: Gen-2 4-button rev2 (C6)
+            config: Airtap-Tx/Gen-2/esphome-4btn-rev2.yaml
+          - name: Gen-1 3-button rev1 (C3)
+            config: Airtap-Tx/Gen-1/esphome-3btn-rev1.yaml
+          - name: Gen-1 3-button rev2 (C3)
+            config: Airtap-Tx/Gen-1/esphome-3btn-rev2.yaml
+          - name: Gen-1 3-button rev3 (C6)
+            config: Airtap-Tx/Gen-1/esphome-3btn-rev3.yaml
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Pull latest ESPHome Stable
+        run: docker pull ghcr.io/esphome/esphome:stable
+
+      - name: Show ESPHome version
+        run: docker run --rm ghcr.io/esphome/esphome:stable version
+
+      - name: Create dummy Wi-Fi secrets for historical Gen-1 rev1
+        if: matrix.config == 'Airtap-Tx/Gen-1/esphome-3btn-rev1.yaml'
+        run: |
+          cat > Airtap-Tx/Gen-1/secrets.yaml <<'EOF'
+          wifi_ssid: "ci-test-network"
+          wifi_password: "ci-test-password"
+          EOF
+
+      - name: Validate configuration
+        run: |
+          docker run --rm \
+            -v "$PWD:/config" \
+            -w /config \
+            ghcr.io/esphome/esphome:stable \
+            config "${{ matrix.config }}"
+
+      - name: Compile firmware
+        run: |
+          docker run --rm \
+            -v "$PWD:/config" \
+            -w /config \
+            ghcr.io/esphome/esphome:stable \
+            compile "${{ matrix.config }}"
